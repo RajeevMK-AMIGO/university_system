@@ -14,7 +14,7 @@ def main():
     db = Database()
 
     # 1. Create Department
-    cs_dept = Department1("Computer Science")
+    cs_dept = Department("Computer Science")
     db.add_department(cs_dept)
     print(f"Created {cs_dept}")
 
@@ -49,4 +49,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
