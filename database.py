@@ -27,7 +27,7 @@ class Database:
     def get_professor(self, professor_id):
         return self.professors.get(professor_id)
 
-    def add_department(self, department):
+    def add_department1(self, department):
         self.departments[department.id] = department
     
     def get_department(self, department_id):
@@ -47,3 +47,4 @@ class Database:
 
     def get_enrollments_for_course(self, course_id):
         return [e for e in self.enrollments if e.course_id == course_id]
+
