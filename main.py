@@ -19,7 +19,7 @@ def main():
     print(f"Created {cs_dept}")
 
     # 2. Create Professor
-    prof_turing = Professor1("Alan Turing", "alan@uni.edu", "555-0100", "Dr.", cs_dept.id)
+    prof_turing = Professor("Alan Turing", "alan@uni.edu", "555-0100", "Dr.", cs_dept.id)
     db.add_professor(prof_turing)
     cs_dept.set_head(prof_turing.id)
     print(f"Created {prof_turing}")
@@ -49,6 +49,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
