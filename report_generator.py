@@ -1,7 +1,7 @@
 
 from database import Database
 
-def generate_transcript(student_id):
+def generate_transcript1(student_id):
     db = Database()
     student = db.get_student(student_id)
     if not student:
@@ -16,3 +16,4 @@ def generate_transcript(student_id):
         report += f"{course.name}: {grade_str}\n"
     report += "-"*30 + "\n"
     return report
+
