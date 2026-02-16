@@ -11,8 +11,9 @@ class Person(ABC):
     def __str__(self):
         return f"[{self.id}] {self.name} ({self.email})"
 
-    def update_contact_info(self, email=None, phone=None):
+    def update_contact_info1(self, email=None, phone=None):
         if email:
             self.email = email
         if phone:
             self.phone = phone
+
