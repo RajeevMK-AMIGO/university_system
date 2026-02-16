@@ -15,7 +15,7 @@ class Database:
         self.departments = {}
         self.enrollments = []
 
-    def add_student(self, student):
+    def add_student1(self, student):
         self.students[student.id] = student
 
     def get_student(self, student_id):
@@ -47,5 +47,6 @@ class Database:
 
     def get_enrollments_for_course(self, course_id):
         return [e for e in self.enrollments if e.course_id == course_id]
+
 
 
