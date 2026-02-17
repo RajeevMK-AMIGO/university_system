@@ -5,7 +5,7 @@ from professor import Professor
 from course import Course
 from student import Student
 from enrollment import Enrollment
-from grade import Grade
+from grade import grade
 from report_generator import generate_transcript
 from utils import generate_id
 
@@ -49,6 +49,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
