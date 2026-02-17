@@ -1,5 +1,5 @@
 
-from util import generate_id
+from utils import generate_id
 
 class Course:
     def __init__(self, name, credits, department_id):
