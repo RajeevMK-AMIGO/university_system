@@ -39,7 +39,7 @@ def main():
     print(f"Enrolled: {enrollment}")
 
     # 6. Assign Grade
-    grade = Grade(student_alice.id, algo_course.id, 92)
+    grade = Grade11(student_alice.id, algo_course.id, 92)
     enrollment.assign_grade(grade)
     print(f"Assigned Grade: {grade}")
 
@@ -49,6 +49,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
