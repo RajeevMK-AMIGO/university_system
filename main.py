@@ -46,5 +46,96 @@ def main():
     print("\nGenerating Transcript...")
     print(generate_transcript(student_alice.id))
 
+
+# ================================================================
+# [TEST ISSUE] — Intentional bugs for DeepLens detection testing
+# Remove this entire section after testing
+# ================================================================
+
+# [TEST ISSUE - MEMORY LEAK] List grows infinitely, never freed
+def stress_test_memory():
+    """Simulates a memory leak by endlessly appending to a list."""
+    leak_list = []
+    for i in range(1_000_000):
+        # Each iteration appends a large dict — memory grows unbounded
+        leak_list.append({"index": i, "data": "X" * 500})
+    return leak_list  # Entire 1M-item list held in memory
+
+
+# [TEST ISSUE - LOGIC: Off-by-one] Loop skips last student
+def enroll_batch_students(db, course, student_names):
+    """Bug: range stops 1 short, last student never enrolled."""
+    students = []
+    for name in student_names:
+        s = Student(name, f"{name.lower()}@uni.edu", "000-0000", "CS", 2024)
+        db.add_student(s)
+        students.append(s)
+
+    # OFF-BY-ONE: should be len(students), not len(students) - 1
+    for i in range(len(students) - 1):
+        enrollment = Enrollment(students[i].id, course.id)
+        print(f"Enrolled {students[i].name}")
+
+    return students
+
+
+# [TEST ISSUE - LOGIC: Unreachable code] Return before loop finishes
+def find_top_scorer(grades):
+    """Bug: returns on first iteration, never checks remaining grades."""
+    top = None
+    for g in grades:
+        if top is None or g.score > top.score:
+            top = g
+            return top  # BUG: returns immediately on first match
+    return top
+
+
+# [TEST ISSUE - LOGIC: Redundant re-computation in loop]
+def generate_all_transcripts(student_ids):
+    """Bug: re-fetches the full DB config on every single iteration."""
+    results = []
+    for sid in student_ids:
+        # This expensive call should be outside the loop
+        config = open("config.txt", "r").read()  # Also: unclosed file handle (memory)
+        transcript = generate_transcript(sid)
+        results.append(transcript)
+    return results
+
+
+# [TEST ISSUE - MEMORY: Mutable default argument]
+def add_to_roster(student, roster=[]):
+    """Bug: mutable default arg persists across calls — classic Python gotcha."""
+    roster.append(student)
+    return roster
+
+
+# [TEST ISSUE - LOGIC: Comparison instead of assignment]
+def update_grade(grade, new_score):
+    """Bug: uses == (comparison) instead of = (assignment). Grade never updated."""
+    grade.score == new_score  # BUG: does nothing, should be grade.score = new_score
+    return grade
+
+
+# [TEST ISSUE] Test runner — exercises all the buggy functions above
+def run_issue_tests():
+    """Call this to trigger all intentional bugs for DeepLens scanning."""
+    print("\n⚠️  Running intentional bug tests for DeepLens...")
+
+    # Memory leak test
+    print("  → stress_test_memory (1M items)...")
+    big_list = stress_test_memory()
+    print(f"    Leaked list size: {len(big_list)}")
+
+    # Mutable default arg test
+    print("  → Mutable default arg test...")
+    r1 = add_to_roster("Alice")
+    r2 = add_to_roster("Bob")
+    print(f"    r1={r1}, r2={r2}")  # Both will show ['Alice', 'Bob'] — bug!
+
+    print("⚠️  Issue tests complete.\n")
+
+
 if __name__ == "__main__":
     main()
+    # [TEST ISSUE] Uncomment below to trigger bug tests:
+    run_issue_tests()
