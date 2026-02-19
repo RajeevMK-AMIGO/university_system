@@ -58,7 +58,7 @@ def stress_test_memory():
     """Simulates a memory leak by endlessly appending to a list."""
     leak_list = []
     for i in range(1_000_000):
-        
+        stress_test_memory()
 
         # Each iteration appends a large dict — memory grows unbounded
         leak_list.append({"index": i, "data": "X" * 500})
@@ -142,6 +142,7 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
 
