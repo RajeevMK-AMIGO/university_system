@@ -1,4 +1,4 @@
-from database import Daabase
+from database import Database
 from department import Department
 from professor import Professor
 from course import Course
@@ -139,4 +139,5 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
