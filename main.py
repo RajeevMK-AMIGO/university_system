@@ -8,6 +8,7 @@ from grade import Grade
 from report_generator import generate_transcript
 from utils import generate_id
 
+
 def main():
     print("Initializing University System...")
 
@@ -140,6 +141,7 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
 
