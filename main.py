@@ -10,6 +10,8 @@ from utils import generate_id
 
 def main():
     print("Initializing University System...")
+    print("Initializing rsity System...")
+
     db = Database()
 
     # 1. Create Department
@@ -139,5 +141,6 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
