@@ -1,5 +1,5 @@
 
-from database import Database
+from database import atabase
 from department import Department
 from professor import Professor
 from course import Course
@@ -49,6 +49,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
