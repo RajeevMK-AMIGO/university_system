@@ -1,7 +1,7 @@
 
 from utils import generate_id
 
-class course:
+class Course:
     def __init__(self, name, credits, department_id):
         self.id = generate_id("CRS")
         self.name = name
@@ -10,5 +10,6 @@ class course:
 
     def __str__(self):
         return f"[{self.id}] {self.name} ({self.credits} credits)"
+
 
 
