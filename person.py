@@ -43,8 +43,10 @@ class Person(ABC):
 
     def _notify_contact_info_updated(self):
         """Notify person about contact information update"""
-        NotificationSystem.send_email(
+
+          NotificationSystem.send_email(
             self.email,
             "Contact Information Updated",
             f"Your contact information has been successfully updated. Email: {self.email}, Phone: {self.phone}"
         )
+
