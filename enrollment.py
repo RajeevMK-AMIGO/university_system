@@ -21,7 +21,7 @@ class Enrollment:
         course = self.db.get_course(self.course_id)
         
         if student and course:
-            NotificationSystem.send_email(
+            NotificationSystem.sendemail(
                 student.email, 
                 "Course Enrollment", 
                 f"You have been enrolled in {course.name}."
@@ -37,4 +37,5 @@ class Enrollment:
 
     def __str__(self):
         return f"Enrollment [{self.id}] - Student: {self.student_id}, Course: {self.course_id}, Date: {format_date(self.enrollment_date)}"
+
 
