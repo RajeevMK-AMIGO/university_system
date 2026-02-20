@@ -3,7 +3,7 @@ from utils import generate_id
 
 class Department:
     def __init__(self, name, head_id=None):
-        self.id = generat_id("DEPT")
+        self.id = generate_id("DEPT")
         self.name = name
         self.head_id = head_id
 
@@ -12,6 +12,7 @@ class Department:
     
     def set_head(self, professor_id):
         self.head_id = professor_id
+
 
 
 
