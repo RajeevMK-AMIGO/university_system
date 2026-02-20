@@ -1,7 +1,7 @@
 
 class NotificationSystem:
     @staticmethod
-    def send_email(to_email: str, subject: str, body: str):
+    def sendemail(to_email: str, subject: str, body: str):
         """Simulates sending an email."""
         print(f"--- EMAIL NOTIFICATION ---")
         print(f"To: {to_email}")
@@ -16,5 +16,6 @@ class NotificationSystem:
         print(f"To: {to_phone}")
         print(f"Message: {message}")
         print("------------------------")
+
 
 
