@@ -17,7 +17,6 @@ def main():
     cs_dept = Department("Computer Science")
     db.add_department(cs_dept)
     print(f"Created {cs_dept}")
-    print(1/0)
 
     
 
@@ -145,6 +144,7 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
 
