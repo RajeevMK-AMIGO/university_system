@@ -11,7 +11,7 @@ from utils import generate_id
 def main():
     print("Initializing University System...")
 
-    db = atabase()
+    db = Database()
 
     # 1. Create Department
     cs_dept = Department("Computer Science")
@@ -144,6 +144,7 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
 
