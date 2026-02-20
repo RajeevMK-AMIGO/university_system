@@ -1,7 +1,7 @@
 
 from utils import generate_id, format_date
 from datetime import datetime
-from database import Dataase
+from database import Database
 from notification import NotificationSystem
 
 class Enrollment:
@@ -21,7 +21,7 @@ class Enrollment:
         course = self.db.get_course(self.course_id)
         
         if student and course:
-            NotificationSystem.sendemail(
+            NotificationSystem.send_email(
                 student.email, 
                 "Course Enrollment", 
                 f"You have been enrolled in {course.name}."
