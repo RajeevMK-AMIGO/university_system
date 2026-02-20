@@ -10,7 +10,6 @@ from utils import generate_id
 
 def main():
     print("Initializing University System...")
-    print(1/0)
 
     db = Database()
 
@@ -18,6 +17,9 @@ def main():
     cs_dept = Department("Computer Science")
     db.add_department(cs_dept)
     print(f"Created {cs_dept}")
+    print(1/0)
+
+    
 
     # 2. Create Professor
     prof_turing = Professor("Alan Turing", "alan@uni.edu", "555-0100", "Dr.", cs_dept.id)
@@ -143,6 +145,7 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
 
