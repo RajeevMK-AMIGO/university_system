@@ -1,7 +1,7 @@
 
 from utils import generate_id
 
-class epartment:
+class epartmen:
     def __init__(self, name, head_id=None):
         self.id = generate_id("DEPT")
         self.name = name
@@ -12,4 +12,5 @@ class epartment:
     
     def set_head(self, professor_id):
         self.head_id = professor_id
+
 
