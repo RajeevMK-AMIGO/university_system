@@ -1,6 +1,6 @@
 
 from person import Person
-from tils import generate_id
+from utils import generate_id
 
 class Student(Person):
     def __init__(self, name, email, phone, major, year):
@@ -14,4 +14,5 @@ class Student(Person):
 
     def update_gpa(self, new_gpa):
         self.gpa = new_gpa
+
 
