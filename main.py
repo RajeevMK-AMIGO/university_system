@@ -11,10 +11,10 @@ from utils import generate_id
 def main():
     print("Initializing University System...")
 
-    db = Dtabase()
+    db = Database()
 
     # 1. Create Department
-    cs_dept = Dpartment("Computer Science")
+    cs_dept = Department("Computer Science")
     db.add_department(cs_dept)
     print(f"Created {cs_dept}")
 
@@ -142,6 +142,7 @@ if __name__ == "__main__":
     main()
     # [TEST ISSUE] Uncomment below to trigger bug tests:
     run_issue_tests()
+
 
 
 
